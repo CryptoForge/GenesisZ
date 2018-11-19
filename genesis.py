@@ -18,7 +18,7 @@ import sys, os, time, re
 from bitcoin.core import *
 from bitcoin.core.script import CScript, OP_CHECKSIG
 from zcash.core import *
-import blockexplorer as be
+#import blockexplorer as be
 from pyblake2 import blake2s
 
 from logger import warn, fatal, verb
@@ -123,7 +123,9 @@ def parse_args():
     parser.add_argument("-v", "--verbose",
             dest="verbose", action="store_true",
             help="verbose output")
-
+    parser.add_argument("-P", "--Prefix",
+            dest="prefix", default="ZERO_PoW",
+            help="personalization string")
     args = parser.parse_args()
     logger.verbose = args.verbose
     SelectCoreParams(args.chain)
